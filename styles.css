@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pinyon-script-regular {
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Exmouth";
+  src: url("fonts/Exmouth.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "VNPxCopperplate";
+  src: url("fonts/VNPxCopperplate.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EmojiFont";
+  src: url("fonts/EmojiFont.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cursive";
+  src: url("fonts/Cursive.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AppleItalic";
+  src: url("fonts/AppleGaramond-LightItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Apple";
+  src: url("fonts/AppleGaramond-Light.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+background: #fae3ec;
+background: linear-gradient(90deg, rgba(250, 227, 236, 1) 2%, rgba(252, 252, 222, 1) 15%, rgba(224, 246, 220, 1) 30%, rgba(223, 244, 245, 1) 47%, rgba(228, 255, 222, 1) 68%, rgba(245, 245, 215, 1) 82%, rgba(255, 222, 222, 1) 99%);
+  text-align: center;
+  padding: 3rem;
+}
+
+h1 {
+  font-family: "Exmouth", monospace;
+  font-size: 9rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  margin-top: -40px;
+  color: #222;
+}
+
+a {
+  display: inline-block;
+  margin-top: -10px;   
+  font-size: 2rem;
+  text-decoration: none;  
+  color: #333;           
+}
+
+a:hover {
+  color: #ff1e6c; 
+}       
+
+p {
+    font-family: "AppleItalic", Arial, Helvetica, sans-serif;
+    font: size 3rem;;
+    font-weight: lighter;
+    color: #222;
+}
+
+pre, code {
+    font-family: "IBM Plex Mono", cursive;
+    font-family: "Courier New", monospace;
+    white-space: pre;
+}
+
+body {
+  cursor: url("images/cursor.png"), auto;
+  text-align: center;
+  font-family: "Cursive", sans-serif;
+  font-size: 1.5rem;
+  background: radial-gradient(circle, #ebebd5 0%, #ffc7d6 45%, #d5e6eb 78%, #e4f7d5 90%);
+}
+
+#gameCanvas {
+  height: 500px;
+  width: 500px;
+  font-family: "Cursive";
+  margin-top: 35px; 
+  display: block;    
+  margin-left: auto;
+  margin-right: auto;
+  background: radial-gradient(circle at center, #fac3ce 0%, #fbddf9 100%);
+  border: 3px solid #cdd8f6;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(253, 224, 243, 0.2);
+}
+
+.playTitle {
+  margin-top: -30px;
+  font-size: 7rem;     
+  color: #333;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+
+
+#gameOver {
+  display: none; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #333;
+  font-family: "Cursive", sans-serif;
+  z-index: 10;
+  background: none;    
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+
+#gameOver::before,
+#gameOver::after {
+  content: none;
+}
+
+
+#gameOver img {
+  width: 280px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#gameOver img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+
+#gameOver p {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  color: #333;
+  text-shadow: 1px 1px 3px white;
+  font-family: "Cursive", sans-serif;
+  pointer-events: none;
+}
+
+
+#gameOver p.title {
+  top: 43%;         
+  font-size: 26px;
+}
+
+#gameOver p.score {
+  top: 58%;
+  font-size: 20px;
+}
+
+
+@keyframes cloudFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#gameOver {
+  animation: 
+  cloudFadeIn 0.8s ease-out forwards,
+  glow 2.5s ease-in-out infinite;
+}
+
+
+@keyframes cloudDrift {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50%      { transform: translate(-50%, calc(-50% - 6px)); }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(173, 216, 230, 0.4); 
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 182, 193, 0.8); 
+  }
+}
+
+
+#gameOver {
+  animation: cloudDrift 3s ease-in-out infinite;
+}
